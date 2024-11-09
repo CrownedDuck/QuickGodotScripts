@@ -1,0 +1,17 @@
+#A Script for a top-down Player
+class_name PlayerMovement
+extends CharacterBody2D
+
+#Movement Variables and Constants
+var Spd = 100
+const ACCEL = 1
+
+var vel:Vector2
+
+func _physics_process(delta):
+	vel.x =  Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	vel.y =  Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	vel = vel.normalized()
+	
+	velocity = vel * Spd
+	move_and_slide()
