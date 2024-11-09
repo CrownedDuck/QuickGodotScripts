@@ -1,0 +1,14 @@
+#Camera Shake Script
+
+func _ready():
+	_camera_shake()
+
+var amount:int = 10
+
+func _camera_shake():
+	for i in range(amount):
+		offset.x = randf_range(-1,1)
+		offset.y = randf_range(-1,1)
+		await get_tree().create_timer(0.01).timeout
+	offset.x = 0
+	offset.y = 0
