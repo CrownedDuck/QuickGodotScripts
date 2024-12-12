@@ -1,0 +1,17 @@
+#Navigation Control Script
+
+@onready var nav = $Player/NavigationAgent2D
+var speed = 10
+var accel = 3
+
+func _physics_process(delta):
+		var direction = Vector3()
+		
+		nav.target_position = PlayerTarget
+		
+		direction = (nav.get_next_path_position() - global_position).normalized()
+		
+		velocity = velocity.lerp(direction*speed,accel*delta)
+		
+		move_and_slide()
+		
