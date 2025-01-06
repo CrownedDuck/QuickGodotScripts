@@ -8,8 +8,7 @@ var vel = Vector3()
 var rot_x = 0
 var rot_y = 0
 
-@export var Contain:Node
-@onready var cam = $cam/Camera3D
+@onready var cam = $cam
 @onready var anim = $AnimationPlayer
 
 
@@ -67,4 +66,4 @@ func _input(e):
 	
 		
 		transform.basis = Basis(Vector3(0,1,0), rot_y)
-		$cam.transform.basis = Basis(Vector3(1,0,0), rot_x)
+		cam.transform.basis = Basis(Vector3(1,0,0), rot_x)
